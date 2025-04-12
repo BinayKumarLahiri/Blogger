@@ -45,7 +45,10 @@ const Comments = () => {
   const getComments = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/comment/getall/${blogId}`
+        `${import.meta.env.VITE_API_BASE_URL}/comment/getall/${blogId}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.comments);
@@ -63,7 +66,10 @@ const Comments = () => {
   const handleDelete = async (commentId) => {
     try {
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/comment/remove/${commentId}`
+        `${import.meta.env.VITE_API_BASE_URL}/comment/remove/${commentId}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.message);
@@ -85,7 +91,10 @@ const Comments = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/comment/add`,
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         toast.success(response.data.message);

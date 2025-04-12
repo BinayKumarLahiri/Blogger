@@ -77,7 +77,10 @@ const Profile = () => {
         `${import.meta.env.VITE_API_BASE_URL}/user/update-profile/${
           user.user.id
         }`,
-        formBody
+        formBody,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         dispatch(setUser({ user: response.data.user }));

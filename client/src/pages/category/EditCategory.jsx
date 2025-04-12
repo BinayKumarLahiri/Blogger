@@ -45,7 +45,10 @@ const EditCategory = () => {
         setLoading(true);
         //console.log(categoryid);
         const response = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/category/get/${categoryid}`
+          `${import.meta.env.VITE_API_BASE_URL}/category/get/${categoryid}`,
+          {
+            withCredentials: true,
+          }
         );
         if (response.status === 200) {
           form.setValue("category", response.data.category.category);
@@ -75,7 +78,10 @@ const EditCategory = () => {
       setLoading(true);
       const response = await axios.put(
         `${import.meta.env.VITE_API_BASE_URL}/category/edit/${categoryid}`,
-        values
+        values,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         //console.log(response.data.message);

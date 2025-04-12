@@ -48,7 +48,10 @@ const SignIn = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/user/login`,
-        values
+        values,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         dispatch(

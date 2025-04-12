@@ -29,7 +29,10 @@ const Comments = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/comment/getallcomment`
+        `${import.meta.env.VITE_API_BASE_URL}/comment/getallcomment`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.comments);
@@ -51,7 +54,10 @@ const Comments = () => {
       setLoading(true);
       //console.log(commentId);
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/comment/remove/${commentId}`
+        `${import.meta.env.VITE_API_BASE_URL}/comment/remove/${commentId}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         fetchComments();

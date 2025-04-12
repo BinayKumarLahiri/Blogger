@@ -29,7 +29,10 @@ const BlogList = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/blog/getall`
+        `${import.meta.env.VITE_API_BASE_URL}/blog/getall`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.blogs);
@@ -51,7 +54,10 @@ const BlogList = () => {
       setLoading(true);
       //console.log(blogid);
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/blog/remove/${blogid}`
+        `${import.meta.env.VITE_API_BASE_URL}/blog/remove/${blogid}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         fetchBlogs();

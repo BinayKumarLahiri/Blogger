@@ -16,7 +16,10 @@ const BlogView = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/blog/getblog/${blogId}`
+        `${import.meta.env.VITE_API_BASE_URL}/blog/getblog/${blogId}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.blog);

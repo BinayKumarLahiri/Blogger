@@ -62,6 +62,8 @@ export const login = async (req, res) => {
     res.cookie("token", token, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
+      secure: true,
+      sameSite: "None",
       path: "/",
     });
     return res.status(200).json({
@@ -112,6 +114,8 @@ export const googleLogin = async (req, res) => {
     res.cookie("token", token, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
+      secure: true,
+      sameSite: "None",
       path: "/",
     });
     return res.status(200).json({
@@ -138,6 +142,8 @@ export const logout = async (req, res) => {
     res.clearCookie("token", {
       // maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
+      secure: true,
+      sameSite: "None",
       path: "/",
     });
     return res.status(200).json({

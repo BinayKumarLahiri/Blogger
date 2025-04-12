@@ -28,7 +28,10 @@ const AppSidebar = () => {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/category/getall`
+        `${import.meta.env.VITE_API_BASE_URL}/category/getall`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.categories);

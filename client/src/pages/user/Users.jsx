@@ -30,7 +30,10 @@ const Users = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/user/all-user`
+        `${import.meta.env.VITE_API_BASE_URL}/user/all-user`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.users);
@@ -52,7 +55,10 @@ const Users = () => {
       setLoading(true);
       //console.log(categoryid);
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/user/delete/${categoryid}`
+        `${import.meta.env.VITE_API_BASE_URL}/user/delete/${categoryid}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         fetchCategories();

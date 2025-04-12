@@ -28,7 +28,10 @@ const Categorydetails = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/category/getall`
+        `${import.meta.env.VITE_API_BASE_URL}/category/getall`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.categories);
@@ -50,7 +53,10 @@ const Categorydetails = () => {
       setLoading(true);
       //console.log(categoryid);
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/category/delete/${categoryid}`
+        `${import.meta.env.VITE_API_BASE_URL}/category/delete/${categoryid}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         fetchCategories();

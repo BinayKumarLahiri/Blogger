@@ -90,7 +90,10 @@ const EditBlog = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/blog/get/${blogId}`
+        `${import.meta.env.VITE_API_BASE_URL}/blog/get/${blogId}`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         // //console.log(response.data.blog);
@@ -112,7 +115,10 @@ const EditBlog = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/category/getall`
+        `${import.meta.env.VITE_API_BASE_URL}/category/getall`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.categories);
@@ -145,7 +151,10 @@ const EditBlog = () => {
       setLoading(true);
       const response = await axios.put(
         `${import.meta.env.VITE_API_BASE_URL}/blog/edit/${blogId}`,
-        formBody
+        formBody,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         // dispatch(setUser({ user: response.data.user }));

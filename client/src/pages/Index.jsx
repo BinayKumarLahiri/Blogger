@@ -11,7 +11,10 @@ const Index = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/blog/showAll`
+        `${import.meta.env.VITE_API_BASE_URL}/blog/showAll`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.blogs);

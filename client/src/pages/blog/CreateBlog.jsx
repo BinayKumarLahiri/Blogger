@@ -76,7 +76,10 @@ const CreateBlog = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/category/getall`
+        `${import.meta.env.VITE_API_BASE_URL}/category/getall`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status === 200) {
         //console.log(response.data.categories);
@@ -118,7 +121,10 @@ const CreateBlog = () => {
       setLoading(true);
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/blog/add`,
-        formBody
+        formBody,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         // dispatch(setUser({ user: response.data.user }));

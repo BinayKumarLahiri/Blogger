@@ -24,7 +24,10 @@ const ProfileDrawer = () => {
   const handleLogout = async (e) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/user/logout`
+        `${import.meta.env.VITE_API_BASE_URL}/user/logout`,
+        {
+          withCredentials: true,
+        }
       );
       if (response.status == 200) {
         dispatch(removeUser());
